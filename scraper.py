@@ -60,12 +60,12 @@ def create_parser():
     # Positional Arguments
     parser.add_argument('url', type=str, help='URL address to scrape')
     # # Optional Arguments
-    parser.add_argument(
-        '-l', '--link', help='search for specific URLs within main URL')
-    parser.add_argument(
-        '-e', '--email', help='search for specific emails within main URL')
-    parser.add_argument(
-        '-n', '--num', help='search for phone numbers within main URL')
+    # parser.add_argument(
+    #     '-l', '--link', help='search for specific URLs within main URL')
+    # parser.add_argument(
+    #     '-e', '--email', help='search for specific emails within main URL')
+    # parser.add_argument(
+    #     '-n', '--num', help='search for phone numbers within main URL')
     return parser
 
 
