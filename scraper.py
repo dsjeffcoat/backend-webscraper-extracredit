@@ -13,6 +13,9 @@ TODO:
 - display extracted data
     - build a parser in order to display on terminal
 """
+
+__author__ = 'Diarte Jeffcoat'
+
 import requests
 import re
 import argparse
