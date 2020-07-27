@@ -13,6 +13,9 @@ TODO:
 - display extracted data
     - build a parser in order to display on terminal
 """
+
+__author__ = 'Diarte Jeffcoat'
+
 import requests
 import re
 import argparse
@@ -23,9 +26,8 @@ def scrape_links(url):
     """Search and return all URL links within a webpage"""
     request = requests.get(url).text
     links = re.findall(
-        r'''
-        http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+
-        ''', request)
+        r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+',
+        request)
     for link in links:
         print(link)
 
@@ -43,9 +45,8 @@ def scrape_nums(url):
     """Search and return all phone numbers within a webpage"""
     request = requests.get(url).text
     nums = re.findall(
-        r'''
-        (\d{3}[-\.\s]\d{3}[-\.\s]\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]\d{4}|\d{3}[-\.\s]\d{4})
-        ''', request)
+        r'(\d{3}[-\.\s]\d{3}[-\.\s]\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]\d{4}|\d{3}[-\.\s]\d{4})',
+        request)
     for num in nums:
         print(num)
 
@@ -58,13 +59,13 @@ def create_parser():
         URLs, email addresses, and phone numbers.''')
     # Positional Arguments
     parser.add_argument('url', type=str, help='URL address to scrape')
-    # Optional Arguments
-    parser.add_argument(
-        '-l', '--link', help='search for specific URLs within main URL')
-    parser.add_argument(
-        '-e', '--email', help='search for specific emails within main URL')
-    parser.add_argument(
-        '-n', '--num', help='search for phone numbers within main URL')
+    # # Optional Arguments
+    # parser.add_argument(
+    #     '-l', '--link', help='search for specific URLs within main URL')
+    # parser.add_argument(
+    #     '-e', '--email', help='search for specific emails within main URL')
+    # parser.add_argument(
+    #     '-n', '--num', help='search for phone numbers within main URL')
     return parser
 
 
